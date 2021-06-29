@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <title>Simple Django Authentication Project</title>
+</head>
+<body>
+{% extends 'index.html' %}
+{% block content %}
+    <h1>Create New Account</h1>
+
+    <form method="POST">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Register Now</button>
+
+    </form>
+<a href="{% url 'login' %}">Already Have an Account? Login Here</a>
+
+{% endblock %}
+
+</body>
+</html>

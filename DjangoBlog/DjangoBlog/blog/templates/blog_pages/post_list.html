@@ -1,0 +1,13 @@
+{% extends 'blog_pages/base.html' %}
+
+    {% block content %}
+                <div class="post">
+                    {% for value in data %}
+                    <div class="infomation">
+                        <h2><a href="{% url 'post_detail' pk=value.pk %}"><b>Title is</b> :{{ value.title}}</a></h2>
+                        <p><b>Description:</b>{{ value.text | linebreaksbr}}</p>
+                        <p><b>Published Date</b> : {{value.published_date}}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+    {% endblock %}

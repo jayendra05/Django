@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web page</title>
+    <style>
+        img{
+                height:100px;
+                border:2px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <form action="upload" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="image">
+            <input type="submit" name="upload_file" value="Upload File">
+
+    </form>
+    <h2>DATA Fetched FROM DATABASE ARE: </h2>
+    {% for data in pic %}
+        <img src='{{data.pic.url}}'>
+    {% endfor %}
+</body>
+</html>
